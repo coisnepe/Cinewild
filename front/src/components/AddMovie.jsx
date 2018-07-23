@@ -20,7 +20,6 @@ class AddMovie extends Component {
         this.setState({[e.target.name]:e.target.value})
     }
     handleSumbit(e){
-        console.log(`A film was submited ${JSON.stringify(this.state)}`);
         e.preventDefault();
         fetch("/api/movie/add", {
             method: 'POST',
