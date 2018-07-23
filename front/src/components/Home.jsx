@@ -22,11 +22,7 @@ class Home extends Component {
                         <p>Genre : {movie.genre}</p>
                         <p>Réalisé par {movie.director}</p>
                         <p>Avec {movie.actors}</p>
-                        <p>Synopsis : {movie.synopsis}</p>
-                        <form>
-                            <button onClick={this.deleteMovie} type='submit' value={movie.id}>Supprimer ce film</button>
-                        </form>
-                        
+                        <p>Synopsis : {movie.synopsis}</p>                        
                     </div>
                     
                 )}
