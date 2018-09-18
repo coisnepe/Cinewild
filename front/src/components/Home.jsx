@@ -16,17 +16,13 @@ class Home extends Component {
                 {this.props.movies.map(
                     (movie, i) =>
                     <div key={i}>
-                        <p>{movie.title}</p>
-                        <img src={movie.image} alt={movie.title} width={350} height={500}/>
-                        <p>Sorti le {movie.releasedate}</p>
-                        <p>Genre : {movie.genre}</p>
-                        <p>Réalisé par {movie.director}</p>
-                        <p>Avec {movie.actors}</p>
-                        <p>Synopsis : {movie.synopsis}</p>
-                        <form>
-                            <button onClick={this.deleteMovie} type='submit' value={movie.id}>Supprimer ce film</button>
-                        </form>
-                        
+                        <p>{movie.Title}</p>
+                        <img src={movie.Poster} alt={movie.Title} width={350} height={500}/>
+                        <p>Sorti le {movie.Released}</p>
+                        <p>Genre : {movie.Genre}</p>
+                        <p>Réalisé par {movie.Director}</p>
+                        <p>Avec {movie.Actors}</p>
+                        <p>Synopsis : {movie.Plot}</p>                        
                     </div>
                     
                 )}
