@@ -1,36 +1,54 @@
-import * as actionTypes from '../helpers/actionTypes';
-
-export const searchMovie = (search) =>{
+export const fetchDatasRequest = () => {
     return {
-        type: actionTypes.SEARCH_MOVIE,
-        search
+        type: FETCH_REQUEST
     }
 }
 
-export const fetchDatas = (url) => {
-
-    return dispatch => {
-        return fetch(url)
-            .then(res => {
-                return res.json()})
-            .then(res => {
-                console.log(res);                                
-                dispatch(fetchDatasSuccess(res));
-            })
-            .catch(error => dispatch(fetchDatasError(error)));
-    };
+export const getRandomMoviesRequest = () => {
+    return {
+        type: RANDOM_MOVIES_REQUEST
+    }
 }
 
 export const fetchDatasSuccess = (payload) => {
     return {
-        type: actionTypes.FETCH_SUCCESS,
+        type: FETCH_SUCCESS,
         payload
     }
 }
 
-export const fetchDatasError = (payload) => {
+export const fetchDatasError = (error) => {
     return {
-        type: actionTypes.FETCH_ERROR,
+        type: FETCH_ERROR,
+        error
+    }
+}
+
+export const postMovieRequest = (payload) => {
+    return {
+        type: POST_REQUEST,
         payload
     }
 }
+
+export const postMovieSuccess = (payload) => {
+    return {
+        type: POST_SUCCESS,
+        payload
+    }
+}
+
+export const postMovieError = (payload) => {
+    return {
+        type: POST_ERROR,
+        payload
+    }
+}
+
+export const RANDOM_MOVIES_REQUEST = 'RANDOM_MOVIES_REQUEST';
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_REQUEST = "FETCH_REQUEST";
+export const FETCH_ERROR = "FETCH_ERROR";
+export const POST_REQUEST = "POST_REQUEST";
+export const POST_SUCCESS = "POST_SUCCESS";
+export const POST_ERROR = "POST_ERROR";

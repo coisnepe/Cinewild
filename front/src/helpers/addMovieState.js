@@ -1,0 +1,43 @@
+export const state = {
+    title : '',
+    year : '',
+    rated : '',
+    released : '',
+    runtime: '',
+    genre : '',
+    director : '',
+    writer : '',
+    actors : '',
+    plot : '',
+    language : '',
+    country : '',
+    awards : '',
+    poster : '',
+    metascore : '',
+    imdbRating : '',
+    imdbVotes : '',
+    imdbID : '',
+    type : ''
+};
+
+export const inputGenerator = [
+    {key : 'title', placeholder : 'titre du film'},
+    {key : 'year', placeholder : 'année de réalisation'},
+    {key : 'rated', placeholder : 'note'},
+    {key : 'released', placeholder : 'date de sortie'},
+    {key: 'runtime', placeholder : 'durée'},
+    {key : 'genre', placeholder : 'genre'},
+    {key : 'director', placeholder : 'réalisateur'},
+    {key : 'writer', placeholder : 'scénariste'},
+    {key : 'actors', placeholder : 'acteurs'},
+    {key : 'plot', placeholder : 'intrigue'},
+    {key : 'language', placeholder : 'langues'},
+    {key : 'country', placeholder : 'pays'},
+    {key : 'awards', placeholder : 'récompenses'},
+    {key : 'poster', placeholder : 'poster'},
+    {key : 'metascore', placeholder : 'metascore'},
+    {key : 'imdbRating', placeholder : 'imdbRating'},
+    {key : 'imdbVotes', placeholder : 'imdbVotes'},
+    {key : 'imdbID', placeholder : 'imdbID'},
+    {key : 'type', placeholder : 'type'}
+];

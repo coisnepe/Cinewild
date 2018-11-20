@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import fetchReducer from './fetch.js';
-import searchReducer from './search.js';
+import fetchMoviesReducer from './fetchMoviesReducer';
+import postMovieReducer from './postMovieReducer';
 
 const combinedReducers = combineReducers({
-    fetchReducer,
-    searchReducer,
+    fetchMoviesReducer,
+    postMovieReducer,
 });
 
 export default combinedReducers;
