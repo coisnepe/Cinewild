@@ -36,7 +36,7 @@ router.post('/api/movie/add', (req, res) => {
     dbo.collection("movies").insertOne(newMovie, (err, res) => {
       if (err) throw err;
     });
-  res.status(200).json({ message: 'Ton film a bien été enregistré'});
+  res.status(200).json({ message: `Ton film ${req.body.title} a bien été enregistré`});
   db.close();
     
   });

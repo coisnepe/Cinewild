@@ -1,37 +1,28 @@
 import React, { Component } from 'react';
-import Movies from './Movies'
-
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
+import Movies from './Movies';
 
 class SearchBar extends Component {
-    
+    state = {
+        search : ''
+    }
     search = (e) => {
-        this.props.actions.searchMovie(e.target.value)
+        this.setState({search : e.target.value})
     }
     render() { 
+        const { search } = this.state;
         return ( 
             <div>
                 <p>Rechercher un film par titre, genre ou réalisateur</p>
                 <input 
                 type="search" 
                 placeholder="recherchez un film"
-                value={this.props.searchMovie}
+                value={search}
                 onChange={this.search} 
                 />
-                <Movies />
+                <Movies searchedMovie={search}/>
             </div>
         );
     }
 }
-const mapStateToProps = (state) => ({
-    searchMovie : state.searchReducer.search,
-});
 
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actions, dispatch),
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default SearchBar;

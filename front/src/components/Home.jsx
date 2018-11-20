@@ -1,45 +1,41 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
+import { getRandomMoviesRequest } from '../actions/index';
+import { moviesMap } from '../helpers/movieHelpers'; 
+import { styles } from '../styles/Movies.styles';
 
 class Home extends Component {
     
-    componentWillMount = () => {
-        this.props.actions.fetchDatas("/api/movies/random")
-    }
-    render() { 
-        return ( 
-            <div>
-                <p>Films à l'affiche :</p>
-                {this.props.movies.map(
-                    (movie, i) =>
-                    <div key={i}>
-                        <p>{movie.Title}</p>
-                        <img src={movie.Poster} alt={movie.Title} width={350} height={500}/>
-                        <p>Sorti le {movie.Released}</p>
-                        <p>Genre : {movie.Genre}</p>
-                        <p>Réalisé par {movie.Director}</p>
-                        <p>Avec {movie.Actors}</p>
-                        <p>Synopsis : {movie.Plot}</p>                        
-                    </div>
-                    
-                )}
-            </div>
-        );
-    }
+  componentWillMount = () => {
+    this.props.getRandomMoviesRequest()
+  }
+
+  mapOnMovies = (moviesObj) => {
+    return moviesMap(moviesObj);
+  }
+  render() { 
+    return ( 
+      <div style={styles.rootContainer}>
+        <div style={styles.titleContainer}>
+          <p>FILMS A L'AFFICHE</p>
+        </div>
+        <div style={styles.movieContainer}>
+          {this.mapOnMovies(this.props.movies)}
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
-    movies: state.fetchReducer.datas,
-    error: state.fetchReducer.error,
-    searchedMovie : state.searchReducer.search,
+  movies: state.fetchMoviesReducer.moviesList,
+  error: state.fetchMoviesReducer.error
 })
 
 function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actions, dispatch),
-    }
+  return {
+    getRandomMoviesRequest: bindActionCreators(getRandomMoviesRequest, dispatch),
+  }
 }
-export default connect(mapStateToProps, mapDispatchToProps) (Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
