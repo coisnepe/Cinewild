@@ -12,8 +12,8 @@ const getRandomMovies = () => {
     return axios.get('/api/movies/random')
 }
 
-const fetchMovieById = (data) => {
-    return axios.post('/api/movie', data)
+const fetchMovieById = (id) => {
+    return axios.get(`/api/movie/${id}`)
 }
 
 export default { getMovies, getRandomMovies, postMovie, fetchMovieById };

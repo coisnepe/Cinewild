@@ -9,7 +9,7 @@ class MovieDetails extends Component {
 
   componentDidMount = () => {
     const { fetchUniqueMovie } = this.props;
-    fetchUniqueMovie({id : this.props.match.params.id})
+    fetchUniqueMovie(this.props.match.params.id)
   }
   
   render() {
