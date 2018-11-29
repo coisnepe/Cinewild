@@ -86,4 +86,19 @@ router.delete('/api/movies/delete', (req, res) => {
   });
 });
 
+/*POST route to return one movie by it's ID*/
+router.post('/api/movie', (req, res) => {
+  
+  MongoClient.connect(url, (err, db) => {
+    if (err) throw err;
+    const dbo = db.db("cinewild");
+    let movieId = {_id : new mongo.ObjectId(req.body.id)};
+    dbo.collection('movies').find(movieId).toArray((err, result) => {
+      if (err) throw err;
+      res.status(200).json(result);
+    });
+    db.close();
+  });
+});
+
 export default router;

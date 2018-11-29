@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Home from './components/Home'
-import Movies from './components/Movies'
-import AddMovie from './components/AddMovie'
-import SearchBar from './components/SearchBar'
-
+import Home from './components/Home';
+import Movies from './components/Movies';
+import AddMovie from './components/AddMovie';
+import SearchBar from './components/SearchBar';
+import MovieDetails from './components/MovieDetails';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -73,6 +73,7 @@ class App extends Component {
               <Route path="/movies" component={Movies} />
               <Route path="/add-movie" component={AddMovie} />
               <Route path="/search-movie" component={SearchBar} />
+              <Route path="/movie/:id" component={MovieDetails} />
             </Switch>
       </div>
     );
